@@ -3,6 +3,7 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   // Disable server-side rendering: https://go.nuxtjs.dev/ssr-mode
   ssr: false,
+  spaLoadingTemplate: './app-loading.html',
 
 
   css: [

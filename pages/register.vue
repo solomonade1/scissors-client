@@ -42,6 +42,7 @@
             <v-col>
               <Loading v-if="loading" />
               <v-btn v-else size="x-large" type="submit"> Register </v-btn>
+              <span v-if="errorMessage" style="color: tomato">{{ errorMessage }}</span>
               <div class="d-flex items-center">
                 <v-btn variant="plain" @click="navigateTo('/login')"
                   >Login</v-btn
@@ -53,7 +54,7 @@
       </v-col>
     </v-row>
     <v-snackbar
-      v-model="userLoading"
+      v-model="loading"
       color="primary darken-2"
       class="text-capitalize py-3"
       :timeout="timeOut"
@@ -76,6 +77,7 @@ definePageMeta({
 });
 const loading = ref(false);
 const timeOut = ref(3000);
+
 const userLoading = ref(false);
 const snackbarText = ref("");
 const form = ref({
@@ -89,7 +91,7 @@ const errorMessage = ref("");
 const auth = useAuthStore();
 
 async function handleRegister() {
-  loading.value = true;
+  
   const { error, status } = await auth.register(form.value);
  
   // console.log("User =>", error);
@@ -100,11 +102,10 @@ async function handleRegister() {
   }
 
   if (status.value === "success") {
-    userLoading.value = true;
+    loading.value = true;
     snackbarText.value = "User Created Successfully!!!";
     navigateTo("/login");
   }
-  loading.value = false;
 }
 
 definePageMeta({

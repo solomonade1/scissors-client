@@ -21,9 +21,9 @@
             <v-col cols="12">
               <InputTextField
                 type="email"
-                placeholder="JohhDoe"
+                placeholder="Johhdoe@gmal.com"
                 v-model="form.email"
-                label="Email Or Username"
+                label="Email"
               />
             </v-col>
             <v-col cols="12">
@@ -60,8 +60,8 @@ definePageMeta({
 
 const loading = ref(false);
 const form = ref({
-  email: "akin@gmail.com",
-  password: "1234",
+  email: "",
+  password: "",
 });
 
 const errorMessage = ref("");
