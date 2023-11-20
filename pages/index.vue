@@ -4,7 +4,7 @@
     <!-- Header-->
     <!-- <ThemeChanger /> -->
     <Header />
-    <v-row class="mt-10" no-gutters="">
+    <v-row class="mt-10" no-gutters>
       <v-col cols="12">
         <h1
           class="text-transparent text-center bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 bg-clip-text lg:text-6xl sm:text-4xl font-bold"
@@ -13,15 +13,15 @@
         </h1>
       </v-col>
       <v-col cols="12">
-        <p class="text-center text-[#C9CED6] px-3">
+        <p class="text-center text-[#C9CED6] text-body-1 px-3">
           Linkly is an efficient and easy-to-use URL shortening service that
           streamlines your online experience.
         </p>
       </v-col>
     </v-row>
-    <v-row no-gutters class="mt-10">
+    <v-row no-gutters class=" mt-10 ">
       <v-col cols="12" sm="8" md="6" class="m-auto">
-        <v-row>
+        <v-row no-gutters >
           <v-col v-if="showAlias" cols="9" class="m-auto px-3">
             <InputTextField
               ref="inputAliasField"
@@ -41,10 +41,10 @@
         </v-row>
       </v-col>
     </v-row>
-    <v-row no-gutters="" class="d-flex items-center justify-center">
+    <v-row no-gutters class="d-flex items-center justify-center">
       <v-col cols="10" sm="6" align-self="center">
         <v-card class="border-2 border-[#c9ced6] rounded-xl">
-          <v-row class="centerContainer p-1">
+          <v-row class="centerContainer p-1" no-gutters>
             <v-col
               cols="8"
               sm="8"
@@ -85,7 +85,7 @@
       </v-col>
     </v-row>
 
-    <v-row class="d-flex justify-center align-center">
+    <v-row class="d-flex justify-center align-center" no-gutters>
       <v-col cols="8" class="m-auto px-3">
         <v-switch
           color="#144EE3"
@@ -97,11 +97,11 @@
       </v-col>
     </v-row>
     <v-row no-gutters="">
-      <v-col>
-        <p v-if="!auth.isLoggedIn" class="switch">
-          You can create <span class="create px-1">{{ linkNumber }} </span> more
+      <v-col class=" px-3">
+        <p v-if="!auth.isLoggedIn" class="text-center">
+          You can create <span class="create ">{{ linkNumber }} </span> more
           links. Register Now to enjoy Unlimited usage question-circle
-          <v-icon color="#c9ced6" class="ml-2">mdi-help-circle-outline</v-icon>
+          <v-icon color="#c9ced6" class="">mdi-help-circle-outline</v-icon>
         </p>
       </v-col>
     </v-row>

@@ -153,7 +153,9 @@ const getUrl = async () => {
     formData.value.shortUrl = singleUrl.value.urlId;
     formData.value.originalUrl = singleUrl.value.originalUrl;
   }
-  console.log("URLLLLL =>", singleUrl.value)
+  //console.log("URLLLLL =>", singleUrl.value)
+  console.log(auth.user.username, "User")
+
 }
 
 const getUrlClickInfo = async () => {
@@ -164,7 +166,7 @@ const getUrlClickInfo = async () => {
   //   formData.value.shortUrl = singleUrl.value.urlId;
   //   formData.value.originalUrl = singleUrl.value.originalUrl;
   // }
-  console.log("URLLLLL INFOOOO =>", urlClickInfos.value)
+//  console.log("URLLLLL INFOOOO =>", urlClickInfos.value)
 }
 
 
