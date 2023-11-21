@@ -14,7 +14,7 @@
       </v-col>
       <v-col cols="12">
         <p class="text-center text-[#C9CED6] text-body-1 px-3">
-          Linkly is an efficient and easy-to-use URL shortening service that
+          Scissors is an efficient and easy-to-use URL shortening service that
           streamlines your online experience.
         </p>
       </v-col>
@@ -100,7 +100,7 @@
       <v-col class=" px-3">
         <p v-if="!auth.isLoggedIn" class="text-center">
           You can create <span class="create ">{{ linkNumber }} </span> more
-          links. Register Now to enjoy Unlimited usage question-circle
+          links. Register Now to enjoy Unlimited!!!
           <v-icon color="#c9ced6" class="">mdi-help-circle-outline</v-icon>
         </p>
       </v-col>
