@@ -109,7 +109,7 @@
     <Loading v-if="urlPending" />
     <main class="urlTable m-auto mt-10" v-else>
       <v-data-table
-        :items-per-page="6"
+        :items-per-page="10"
         :headers="visibleHeaders"
         :items="visibleData"
         class="elevation-8"
@@ -228,14 +228,14 @@
     </main>
   </div>
   <v-snackbar
-    v-model="urlLoading"
+    v-model="urlErrorStatus"
     color="primary darken-2"
     class="text-capitalize py-3"
     :timeout="timeOut"
     top
   >
     <div class="text-center">
-      <span class="text-center">{{ urlMsg }}</span>
+      <span class="text-center text-body-1 font-weight-bold">{{ urlMsg }}</span>
     </div>
   </v-snackbar>
 
@@ -302,11 +302,13 @@ const urlHeaader = ref([
     title: "Shorten Url",
     align: "start",
     key: "shortUrl",
+    width: "200px",
   },
   {
     title: "Original Url",
     align: "start",
     key: "originalUrl",
+    width: "200px",
   },
   {
     title: "QR Code",
@@ -434,9 +436,10 @@ const handleCreateUrl = async () => {
     //   urlError.value = error.value
 
     if (status.value === "error") {
-      urlLoading.value = true;
       urlErrorMsg.value = error.value.data.message;
       urlMsg.value = error.value.data.message;
+      console.log("ERROR MSG => ", error.value.data.message)
+      urlErrorStatus.value = true;
     }
 
     // Clear the input field
@@ -451,17 +454,26 @@ const handleCreateUrl = async () => {
     return data.value;
   } else {
     formData.value.originalUrl = inputField.value?.value;
-    const { error } = await url.createShortUrlNotUsers(formData.value);
+    const { error, status } = await url.createShortUrlNotUsers(formData.value);
 
     // Clear the input field
-    if (inputField.value) {
-      inputField.value.value = "";
-      formData.value.urlAlias = "";
-    }
+    
     if (error && error.value) {
+      urlErrorStatus.value = true
       console.log("ERROR => ", error.value.data.message);
+      urlErrorMsg.value = error.value.data.message
     }
-    await getUrls();
+    if (status.value === "error") {
+      urlErrorMsg.value = error.value.data.message;
+      urlMsg.value = error.value.data.message;
+      console.log("ERROR MSG => ", error.value.data.message)
+      urlErrorStatus.value = true;
+    }
+    // if (inputField.value) {
+    //   inputField.value.value = "";
+    //   formData.value.urlAlias = "";
+    // }
+    // await getUrls();
   }
   // Set the formData.urlAlias to the inputAliasField's value
 };
@@ -507,6 +519,6 @@ definePageMeta({
 }
 .urlTable {
   height: 30vh;
-  width: 80vw;
+  width: 95vw;
 }
 </style>

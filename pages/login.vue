@@ -8,7 +8,7 @@
           <img src="/svg/login.svg" class="fullHeight" />
         </div>
       </v-col>
-      <v-col cols="6" class="m-auto px-6">
+      <v-col cols="12" md="6" class="m-auto px-6">
         <form @submit.prevent="handleLogin">
           <v-row>
             <v-col cols="12">

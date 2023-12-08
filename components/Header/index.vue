@@ -13,7 +13,7 @@
           rounded="xl"
           elevation="8"
           prepend-icon="mdi-account-circle"
-          :size="mobile ? 'small' : 'x-large'"
+          :size="mobile ? 'large' : 'x-large'"
           class="register text-white text-capitalize"
           >Hi! 👋 {{ auth.user?.username }}</v-btn
         >
@@ -24,7 +24,7 @@
             outlined
             append-icon="mdi-login"
             :size="mobile ? 'small' : 'x-large'"
-            class="login text-white text-capitalize"
+            class="login text-white text-capitalize mt-3"
             @click="handleLogout"
           >
             logout
@@ -35,7 +35,7 @@
             color="#181E29"
             rounded="xl"
             outlined
-            :size="mobile ? 'small' : 'x-large'"
+            :size="mobile ? 'large' : 'x-large'"
             class="login text-white text-capitalize cursor-pointer"
           >
             login
@@ -47,7 +47,7 @@
             rounded="xl"
             color="#144EE3"
             elevation="8"
-            :size="mobile ? 'small' : 'x-large'"
+            :size="mobile ? 'large' : 'x-large'"
             class="register text-white text-capitalize"
             >Register Now</v-btn
           >
